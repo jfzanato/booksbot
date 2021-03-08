@@ -9,5 +9,5 @@ class BlogSpider(scrapy.Spider):
     start_urls = ['https://www.mercadolivre.com.br']
 
     def parse(self, response):
-        for title in response.css('.sinonimo'):
+        for title in response.css('h1'):
             yield {'title': title.css('::text').get()}  
