@@ -6,8 +6,8 @@ import scrapy
 
 class BlogSpider(scrapy.Spider):
     name = 'blogspider'
-    start_urls = ['https://www.mercadolivre.com.br']
+    start_urls = ['https://www.sinonimos.com.br/barato']
 
     def parse(self, response):
-        for title in response.css('h1'):
+        for title in response.css('.sinonimo'):
             yield {'title': title.css('::text').get()}  
